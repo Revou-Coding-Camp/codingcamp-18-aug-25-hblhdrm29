@@ -1,51 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- CSS External -->
-    <link rel="style.css" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="js/script.js"></script>
+
 </head>
-<body>
-    <script src="js/script.js"></script>
-    <!-- Hero Wbesite -->
-    <header>
-        <h1 class="text-6xl font-bold">Todo List</h1>
-    </header>
+<body class="bg-blue-200 flex items-center justify-center min-h-screen text-gray-900">
 
-    <!-- Main Content , todo list fomr , list todo -->
-    <main>
-        <form>
-            <input type="text" id="" placeholder="Add a new task" class="border p-2 rounded">
-            <input type="text" placeholder="Add a new task" class="border p-2 rounded">
-            <button type="submit" class="bg-red-500 text-black p-[8px] rounded">Add</button>
-        </form>
+
+    <div class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-2xl">
+      <h2 class="text-2xl font-bold text-center mb-6">TODO LIST</h2>
+
+    <!-- Form input -->
+    <div class="flex gap-2 mb-4">
+      <input id="task-input" type="text" placeholder="Add a todo..."
+        class="flex-1 px-3 py-2 rounded-lg bg-[#0f172a] text-white border border-slate-600 focus:outline-none">
+      <input id="due-date-input" type="date"
+        class="px-3 py-2 rounded-lg bg-[#0f172a] text-white border border-slate-600 focus:outline-none">
+      <button onclick="validateForm()" 
+        class="bg-blue-500 hover:bg-indigo-600 px-4 rounded-lg font-bold">+</button>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between mb-4">
+  <select id="filterSelect" onchange="applyFilter()" 
+    class="bg-green-700 px-3 py-2 rounded-lg focus:outline-none">
+    <option value="all">Filter</option>
+    <option value="pending">Pending</option>
+    <option value="done">Done</option>
+  </select>
+  <button onclick="deleteAll()" class="bg-red-500 hover:bg-indigo-600 px-4 py-2 rounded-lg">DELETE ALL</button>
+</div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="bg-[#0f172a] text-white">
+            <th class="px-3 py-2 text-left">TASK</th>
+            <th class="px-3 py-2">DUE DATE</th>
+            <th class="px-3 py-2">STATUS</th>
+            <th class="px-3 py-2">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody id="task-list">
+          <tr>
+            <td colspan="4" class="text-center py-3 text-white-400">No task found</td>
+          </tr>
+          
+        </tbody>
         
-        <section>
-            <button></button>
-            <button></button>
-        </section>
-            
-        <section>
-            <header>
-                <h2>Tasks</h2>
-            </header>
-        </section>
+      </table>
+      
+    </div>
 
-        <ul class="ny-4">
-            <li class="border-b py-2">Task1</li>
-            <li class="border-b py-2">Task2</li>
-            <li class="border-b py-2">Task3</li>
-        </ul>
-    </main>
+    <footer class="text-center mt-4 text-sm text-gray-500">
+        &copy; 2025 Habillah Darma. All rights reserved.
+      </footer>
 
-    <footer>
-        <span>&copy;2025 Habillah Darma</span>
-    </footer>
+      <a href="https://www.revou.co/important-links?utm_source=instagram&utm_medium=organic&utm_content=bio&fbclid=PAZXh0bgNhZW0CMTEAAaeybx-m2UgZaN0a9mujBthBKs9_ChqeA21W_VwWXTA6ZKh9y4VGKG37TdIOUA_aem_8wC8klXRrRMVf2XSIGVJOw" 
+      target="_blank">
+     <img src="/revou.png" width="30px" alt="RevoU Logo">
+   </a>
+   
+      
+  </div>
 
+
+
+  <script src="js/script.js"></script>
 </body>
+
+  <!-- Footer -->
+
+
+
 </html>
+
